@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+// import { useState } from 'react';
+import NavBar from './component/NavBar'
+import SearchBar from './component/SearchBar';
+import Card from './component/Card';
 function App() {
+    const forFetchData = async (userName) => {
+      let response = await fetch(`https://api.github.com/users/${userName}`);
+      let r = await response.json();  
+      console.log(r);
+      return r;
+    }
+    // console.log(handleBtnClick);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <>
+      <div className="container">
+        <NavBar />
+        <SearchBar handleBtnClick={forFetchData} />
+        <Card />
+      </div>
+   </>);
 }
 
 export default App;

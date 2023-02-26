@@ -1,0 +1,25 @@
+#navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+h1{
+    margin: 0;
+}
+.mode{
+    display: flex;
+    align-items: center;
+}
+.mode > button{
+    background-color: transparent;
+    height: 40px;
+    color: currentColor;
+    aspect-ratio: 1.7;
+    font-size:100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    box-shadow: 0px 0px 2px 2px #2c2c2c;
+    margin-right: 10px;
+}
