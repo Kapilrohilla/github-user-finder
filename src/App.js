@@ -1,17 +1,21 @@
 import './App.css';
-import { useState } from 'react';
+import {useState } from 'react';
 import NavBar from './component/NavBar'
 import SearchBar from './component/SearchBar';
 import Card from './component/Card';
 function App() {
+  
   const [mode,setMode] = useState('light');
-  const forFetchData = async (userName) => {
-    let response = await fetch(`https://api.github.com/users/${userName}`);
-    let r = await response.json();  
-    console.log(r);
-    return r;
+  const [userName,setUserName] = useState(''); 
+  const [userData,setUserData] = useState('noInitialData');
+  
+  const forFetchData = async () => {
+     let response = await fetch(`https://api.github.com/users/${userName}`);
+     let r = await response.json();
+     setUserData(r);
   }
-  let modeLightStyle = {
+  
+  const modeLightStyle = {
     backgroundColor: '#fff',
     color : 'black',
     'searchContain' : {
@@ -51,15 +55,18 @@ function App() {
       }
     }
   }
-  let defaultStyle = (mode==='light')?modeDarkStyle:modeLightStyle
+
+  const defaultStyle = (mode==='light')?modeDarkStyle:modeLightStyle;
+
   return (
    <>
       <div className="container" style={defaultStyle}>
         <NavBar  mode={mode} handleMode={setMode} modeStyle={defaultStyle}/>
-        <SearchBar handleBtnClick={forFetchData} modeStyle={defaultStyle}/>
-        <Card modeStyle={defaultStyle}/>
+        <SearchBar handleBtnClick={forFetchData} modeStyle={defaultStyle} setUserName={setUserName}/>
+        <Card modeStyle={defaultStyle} userData={userData}/>
       </div>
-   </>);
+   </>
+   );
 }
 
 export default App;

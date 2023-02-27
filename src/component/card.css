@@ -70,3 +70,6 @@
     display: flex;
     gap: 10px;
 }
+#blogLink a{
+    color: #0079fe;
+}

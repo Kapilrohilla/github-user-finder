@@ -1,16 +1,13 @@
 import './navBar.css';
 import { useState } from 'react';
 const NavBar = ({mode,handleMode,modeStyle}) => {
-    // let sunOrMoon;
+    
     const [sunOrMoon,setSunOrMoon] = useState('sun.svg');
     function handleBtnClick(){
         if(mode==="light"){
-            // sunOrMoon = 'moon.svg';
             handleMode('dark');
             setSunOrMoon('moon.svg')
-
         }else{
-            // sunOrMoon = 'sun.svg';
             handleMode('light');
             setSunOrMoon('sun.svg');
         }
@@ -24,7 +21,7 @@ const NavBar = ({mode,handleMode,modeStyle}) => {
             <div className="mode">
                 <button id="modeBtn" onClick={handleBtnClick}>{mode}</button>
                 <label htmlFor="modeBtn">
-                    <img src={`./image/${sunOrMoon}`} alt="" />
+                    <img src={`./image/${sunOrMoon}`} alt="Light|Dark mode" />
                 </label>
             </div>
           </div>
