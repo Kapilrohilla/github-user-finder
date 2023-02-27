@@ -1,10 +1,10 @@
 import './card.css';
 
-export default function Card (){
+export default function Card ({modeStyle}){
     let name = 'kapil rohilla';
     let joinedAt = "2022-01-04T14:34:03Z";
     let userName = 'kapilrohilla';
-    let url = 'https://avatars.githubusercontent.com/u/110235703?v=4';
+    let url = 'https://qph.cf2.quoracdn.net/main-qimg-729a22aba98d1235fdce4883accaf81e';
     let noOfRepso = 9;
     let noOfFollower = 1000;
     let location = 'gutgaon';
@@ -13,7 +13,7 @@ export default function Card (){
     let twitter = '@twitter';
     return (
         <>
-        <div className='cardContainer'>
+        <div className='cardContainer' style={modeStyle.card}>
             <div className="userImage">
                 <img src={url} alt="userImage" />
             </div>
@@ -28,7 +28,7 @@ export default function Card (){
                 <div id="userBio">
                     <p>Bio data......</p>
                 </div>
-                <div id="userStats">
+            <div id="userStats" style={modeStyle.card.userStats}>
                     <ul>
                         <li>
                             <h3>Repos</h3>

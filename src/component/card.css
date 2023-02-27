@@ -14,6 +14,7 @@
     aspect-ratio: 1;
     border-radius: 50%;
     overflow: hidden;
+    background-color: white;
 }
 .userImage img{
     width: 100%;
@@ -63,8 +64,9 @@
     display: grid;
     grid-template-columns: 50% 50%;
     list-style: none;
-    justify-content: space-between;
+    justify-content: spacebetween;
 }
 #impDetail ul li{
     display: flex;
+    gap: 10px;
 }

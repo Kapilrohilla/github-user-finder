@@ -36,6 +36,7 @@
     height: 40px;
     aspect-ratio: 1.7;
     font-size: 15px;
+    margin-right: 10px;
 }
 
 .searchBtn > button:active{

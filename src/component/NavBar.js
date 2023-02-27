@@ -1,22 +1,31 @@
 import './navBar.css';
-const NavBar = (mode,modeIcon,handleMode) => {
+import { useState } from 'react';
+const NavBar = ({mode,handleMode,modeStyle}) => {
+    // let sunOrMoon;
+    const [sunOrMoon,setSunOrMoon] = useState('sun.svg');
     function handleBtnClick(){
         if(mode==="light"){
-            // setMode('dark');
+            // sunOrMoon = 'moon.svg';
+            handleMode('dark');
+            setSunOrMoon('moon.svg')
+
         }else{
-            // setMode('light');
+            // sunOrMoon = 'sun.svg';
+            handleMode('light');
+            setSunOrMoon('sun.svg');
         }
     }
-    console.log(handleMode);
     return (
         <>
-          <div id="navBar">
+          <div id="navBar" style={modeStyle}>
             <div className="logo">
                 <h1>devFinder</h1>
             </div>
             <div className="mode">
-                <button onClick={handleBtnClick}>light</button>
-                <img src="./image/sun-outlined-svgrepo-com.svg" alt="lightImg" />
+                <button id="modeBtn" onClick={handleBtnClick}>{mode}</button>
+                <label htmlFor="modeBtn">
+                    <img src={`./image/${sunOrMoon}`} alt="" />
+                </label>
             </div>
           </div>
         </>
